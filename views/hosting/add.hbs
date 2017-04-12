@@ -1,0 +1,190 @@
+<script type="text/javascript" src="../javascripts/hostAddCtrl.js"></script>
+<div ng-controller="hostAddCtrl">
+    <h2>Create Server</h2>
+    <h3>Select an image</h3>
+    <ul class="distroMenuTitle" style="list-style:none;  cursor:pointer;">
+        <li id="distributions" ng-click="distributions($event)">Distributions</li>   
+        <li id="oneclickapps" ng-click="oneclick($event)">One-Click Apps</li>
+    </ul>
+    <hr>
+    <div class="distributions">
+        <div class="row">
+            <div class="col-md-2 col-sm-4 col-xs-12" ng-repeat="image in imageSelect.name">
+                <div class="distroBox text-center">
+                    <div class="boxTop">
+                        <img ng-src="/images/{[{image}]}.png" width="100px" height="100px" />
+                    </div>
+                    <h5>{[{image}]}</h5>
+                    <select class="distroSelector{[{image}]} distroSelector" ng-model="imageSelect.selected" ng-change="distImgSelect('{[{image}]}', '', $event)" ng-options="option.name as option.name for option in distro_images | toArray | orderBy:'name' | filter:{'distribution': '{[{image}]}'}">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <h5>Selected Distro:</h5>
+        <span>{[{imageSelect.selectDistro}]}</span>
+        <strong>{[{imageSelect.selected}]}</strong>
+    </div>
+    <div class="oneclickapps">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="image in oneclick_images | orderBy:'name'">
+                <ul class="distroList">
+                    <li ng-click="distImgSelect(image.distribution, image.name, $event)">{[{image.name}]}</li>
+                </ul>
+            </div>
+        </div>
+        <h5>Selected Distro:</h5>
+        <span>{[{imageSelect.selectDistro}]}</span>
+        <strong>{[{imageSelect.selected}]}</strong>
+    </div>
+    <br>
+    <h3>Select a size</h3>
+    <ul class="sizeMenuTitle" style="list-style:none;  cursor:pointer;">
+        <li id="standardSizes" ng-click="standardClick($event)">Standard</li>   
+        <li id="memorySizes" ng-click="memoryClick($event)">High memory</li>
+    </ul>
+    <hr>
+    <div class="standardSizes">
+        <div class="row">
+            <div class="col-md-2 col-sm-4 col-xs-6" ng-repeat="size in standSizes | toArray | orderBy:'price_monthly'">
+                <div class="sizeBox text-center" ng-click="sizeSelect(size.slug, $event)">
+                    <div class="boxTop">
+                        ${[{size.price_monthly}]}/mo
+                        <br>
+                        ${[{size.price_hourly}]}/hour
+                        <br>
+                    </div>
+                    <br>
+                    {[{size.memory}]} MB/{[{size.vcpus}]} CPU
+                    <br>
+                    {[{size.disk}]} G SSD disk
+                    <br>
+                    {[{size.transfer}]} TB transfer
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="memorySizes">
+        <div class="row">
+            <div class="col-md-2 col-sm-4 col-xs-6" ng-repeat="size in memSizes | orderBy:'price_monthly'">
+                <div class="sizeBox text-center" ng-click="sizeSelect(size.slug, $event)">
+                    <div class="boxTop">
+                        ${[{size.price_monthly}]}/mo
+                        <br>
+                        ${[{size.price_hourly}]}/hour
+                        <br>
+                    </div>
+                    <br>
+                    {[{size.memory}]} MB/{[{size.vcpus}]} CPU
+                    <br>
+                    {[{size.disk}]} G SSD disk
+                    <br>
+                    {[{size.transfer}]} TB transfer
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>   
+    <h3>Select a region</h3>
+    <hr>
+    <div class="Region">
+        <div class="row">
+            <div class="col-md-2 col-sm-4 col-xs-6 text-center" ng-repeat="region in sortReg">
+                <div class="regBox text-center">
+                    <div class="boxTop">
+                        <h4>{[{region.name}]}</h4>
+                    </div>
+                    <div class="boxBtm row">
+                        <div class="col-md-12 regBoxBtm" ng-repeat="reg in region.region" ng-if="region.region.length == 1">
+                            <div class="regBoxBtmBordThree" ng-click="regionSelect(reg.slug, $index, $event, 1)">
+                                <p>{[{reg.slug}]}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 regBoxBtmTwo" ng-repeat="reg in region.region" ng-if="region.region.length == 2">
+                            <div class="regBoxBtmBord"  ng-click="regionSelect(reg.slug, $index, $event, 2)" ng-if="$index == 0">
+                                <p>{[{reg.slug}]}</p>
+                            </div>
+                            <div class="regBoxBtmBordThree" ng-click="regionSelect(reg.slug, $index, $event, 2)" ng-if="$index == 1">
+                                <p>{[{reg.slug}]}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4 regBoxBtmThree text-center" ng-repeat="reg in region.region" ng-if="region.region.length > 2">
+                            <div class="regBoxBtmBord" ng-click="regionSelect(reg.slug, $index, $event, 3)" ng-if="$index == 0">
+                                <p>{[{reg.slug}]}</p>
+                            </div>
+                            <div class="regBoxBtmBordTwo" ng-click="regionSelect(reg.slug, $index, $event, 3)" ng-if="$index == 1">
+                                <p>{[{reg.slug}]}</p>
+                            </div>
+                            <div class="regBoxBtmBordThree" ng-click="regionSelect(reg.slug, $index, $event, 3)" ng-if="$index == 2">
+                                <p>{[{reg.slug}]}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <h3>Additional Options</h3>
+        <button type="button" class="btn btn-lg btn-danger btn-sm additionalquestion" placement="top" data-toggle="popover" title="Popover title" 
+    data-content="And here's some amazing content. It's very engaging. Right?">?</button>
+    <hr>
+    <div class="addOptions">
+        <ul class="addOptionList">
+            <li><input id="enablePrivNetwork" ng-model="usePrenablePrivNetworkivNetwork" type="checkbox" ><label for="useKey">Private networking</label>
+            <li><input id="enableBackups" ng-model="enableBackups" type="checkbox" ><label for="useKey">Backups</label>
+            <li><input id="enableIPv6" ng-model="enableIPv6" type="checkbox" ><label for="useKey">IPv6</label>
+            <li><input id="enableUData" ng-model="enableUData" type="checkbox" ><label for="useKey">User Data</label>
+            <li><input id="enableMonitoring" ng-model="enableMonitoring" type="checkbox" ><label for="useKey">Monitoring</label>
+        </ul>
+    </div>
+    <br>
+    <h3>Add SSH Key</h3>
+    <button type="button" class="btn btn-lg btn-danger btn-sm question" placement="top" data-toggle="popover" title="Popover title" 
+    data-content="And here's some amazing content. It's very engaging. Right?">?</button>
+    <hr>
+    <div class="addSSH">
+        <ul class="sshList">
+            <li>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                    Add New SSH
+                </button>
+            </li>
+            <li><input id="useKey" ng-model="useKey" type="checkbox" ><label for="useKey"> My SSH Key</label>
+        </ul>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <br>
+    <h3>Choose a hostname</h3>
+    <hr>
+    <div class="hostname">
+        <p> Enter the name you want to give this server. Must contain only alphanumeric characters, dashes, and periods.</p>
+        <label for="hostname"> Hostname</label>
+        <input id="hostname" ng-model="hostname" type="text" placeholder="hostname">
+    </div>
+    <hr>
+    <div class="alert alert-danger hidden" id="errorBox">{[{error}]}</div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2">
+            <button ng-click="createServer()" class="btn btn-success btn-lg serverCreateBtn">Create</button>
+        </div>
+    </div>
+    <br>
+</div>

@@ -1,0 +1,27 @@
+<script src="/javascripts/adminCtrl.js"></script>
+<div ng-controller="adminCtrl">
+    <h1 class="text-center"> {{title}} </h1>
+    <br>
+    <div class="row" >
+        <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12 text-center">
+            <div class="alert alert-danger hidden" id="errorBox">{[{serverErrors}]}</div>
+            <div class="alert alert-success hidden" id="successBox">{[{serverSuccess}]}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 card">
+            <form class="form-group" method="post" action="./submit">
+                <h3>API Configuration</h3>
+                <p><a href="https://cloud.digitalocean.com/settings/applications">Generate an API key</a> with DigitalOcean, then paste it here and save.</p>
+                <div class="form-group">
+                    <label>API Key</label>
+                    <input type="text" class="form-control" id="dokey" ng-model="site.dokey" placeholder="Your private DigitalOcean API key" />
+                </div>
+                <a class="btn btn-success" ng-click="saveAPI()">Save & Sync</a>
+            </form>
+        </div>
+    </div>
+     <script type="text/javascript">
+        dokey = "{{config "do_key"}}";
+    </script>
+</div>

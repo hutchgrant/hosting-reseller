@@ -1,0 +1,70 @@
+@import 'colors';
+
+// Admin Dashboard
+.adminDash{
+    margin-top:-20px;
+}
+.sidebar-container {
+    padding-left:0px;
+    padding-right:5px;
+    
+}
+.sidebar{
+    position:relative;
+    height:100%;
+    background-color: $color-sidebar;
+    width: 100%;
+    float:left;
+    margin-top: 0px;
+    @media (max-width: 770px){
+        height:300px;
+    }
+}
+
+.adminContent{
+    float:left;
+    min-height: 63em; 
+}
+.adminFoot{
+    background-color:$color-highlight;
+    height: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+// Breadcrumb
+.adminBread{
+    padding-left:0px;
+    li{
+        display:inline-block;
+        padding:5px;
+        border:1px solid darkblue;
+        &:hover{
+            display:inline-block;
+            padding:5px;
+            color:red;
+            border:1px solid red;
+        }
+        a{
+            &:hover{
+                color:red;
+            }
+        }
+    }
+}
+
+.card {
+    background-color: #fff;
+    box-shadow: 1px 1px 5px rgba(126, 142, 159, 0.54);
+    margin-bottom: 10px;
+    border-radius: 0;
+    padding:10px;
+    border: none;
+}

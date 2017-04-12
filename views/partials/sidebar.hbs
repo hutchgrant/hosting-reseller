@@ -1,0 +1,38 @@
+<script type="text/javascript" src="/javascripts/sidebarCtrl.js"></script>
+<aside ng-cloak class="sidebar" ng-controller="sidebarCtrl">
+<ul class="metismenu" id="menu">
+    <li class="{{#compare pageCat 'dashboard' operator='=='}}active{{/compare}}">
+        <a href="/admin" aria-expanded="{{#compare pageCat 'dashboard' operator='=='}}true{{else}}false{{/compare}}" aria-disabled="true">
+        <i class="fa fa-home"> </i>   Dashboard<i class="fa arrow"></i></a>
+    </li>
+    <li class="{{#compare pageCat 'manage' operator='=='}}active{{/compare}}">
+        <a href="#" aria-expanded="{{#compare pageCat 'manage' operator='=='}}true{{else}}false{{/compare}}">
+        <i class="fa fa-book"></i>  Manage<i class="fa arrow"></i></a>
+        <ul aria-expanded="{{#compare pageCat 'manage' operator='=='}}true{{else}}false{{/compare}}">
+            <li class="{{#compare page 'manageServers' operator='=='}}active{{/compare}}"><a href="/admin/servers">Servers</a></li>
+            <li class="{{#compare page 'manageDomains' operator='=='}}active{{/compare}}"><a href="/admin/domans">Domains</a></li>
+            <li class="{{#compare page 'manageUsers' operator='=='}}active{{/compare}}"><a href="/admin/users">Users</a></li>
+        </ul>
+    </li>
+    <li class="{{#compare pageCat 'metrics' operator='=='}}active{{/compare}}">
+        <a href="/admin/metrics" aria-expanded="{{#compare pageCat 'metrics' operator='=='}}true{{else}}false{{/compare}}"> <i class="fa fa-bar-chart"> </i>   Metrics<i class="fa arrow"></i></a>
+        <ul aria-expanded="{{#compare pageCat 'metrics' operator='=='}}true{{else}}false{{/compare}}">
+            <!-- TODO -->
+        </ul>
+    </li>
+    <li class="{{#compare pageCat 'reports' operator='=='}}active{{/compare}}">
+        <a href="#" aria-expanded="{{#compare pageCat 'reports' operator='=='}}true{{else}}false{{/compare}}">
+        <i class="fa fa-thumb-tack" aria-hidden="true"></i> Reports<i class="fa arrow"></i></a>
+        <ul aria-expanded="{{#compare page 'reports' operator='=='}}true{{else}}false{{/compare}}">
+            <li><a href="/admin/reports">View All</a></li>
+        </ul>
+    </li>
+    <li class="{{#compare pageCat 'prefs' operator='=='}}active{{/compare}}">
+        <a href=""> <i class="fa fa-desktop"></i> Preferences <i class="fa arrow"></i> </a>
+        <ul aria-expanded="{{#compare page 'reports' operator='=='}}true{{else}}false{{/compare}}">
+            <li class="{{#compare page 'site' operator='=='}}active{{/compare}}"><a href="/admin/preferences" target="main">Site</a></li>
+            <li class="{{#compare page 'digitalocean' operator='=='}}active{{/compare}}"><a href="/admin/digitalocean" target="main">DigitalOcean</a></li>
+        </ul>
+    </li>
+  </ul>
+</aside>

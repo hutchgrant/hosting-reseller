@@ -1,0 +1,172 @@
+// Metis Menu
+.metismenu {
+  padding-left:0px;
+  color:$color-sidebartext;
+  height:100%;
+
+    > li{
+        list-style: none;
+        a{
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 20px;
+            padding-right: 10px;
+            display: block;
+            &:hover{
+                color:$color-textmainhover;
+                background-color:$color-mainhover;
+            }
+        }
+        &.active > a{
+            color:$color-textmainactive;
+            background-color:$color-mainactive !important;
+        }
+        > ul > li.active a {
+            color: $color-textsubactive;
+            background-color: $color-subactive;
+        }
+        &.open > a, &.open > a:hover{
+            @extend a:hover;
+        }
+        &.open > a{
+            background-color: $color-sideopen;
+        }
+    }
+    ul{
+        padding-left:0px;
+        margin-left:0px;
+    }
+    li{ 
+        > ul > li{
+            list-style:none;
+            a{
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 50px;
+                background-color: $color-textsubmain;
+            }
+        }
+        a{
+            color: $color-textmain;
+            text-decoration: none;
+        }
+    }
+    a{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 10px;
+        color:lightgrey;
+    }
+    .arrow {
+        float: right;
+        line-height: 1.42857;
+    }
+    /*
+    * Require Bootstrap
+    * https://github.com/twbs/bootstrap
+    */
+    .glyphicon.arrow:before {
+        content: "\e079";
+    }
+    .active > a > .glyphicon.arrow:before {
+        content: "\e114";
+    }
+
+    /*
+    * Require Font-Awesome
+    * http://fortawesome.github.io/Font-Awesome/
+    */
+    .fa.arrow:before {
+        content: "\f104";
+    }
+    .active > a > .fa.arrow:before {
+    content: "\f107";
+    }
+
+    /*
+    * Require Ionicons
+    * http://ionicons.com/
+    */
+    .ion.arrow:before {
+    content: "\f3d2"
+    }
+    .active > a > .ion.arrow:before {
+    content: "\f3d0";
+    }
+    .plus-times {
+    float: right;
+    }
+    .fa.plus-times:before {
+    content: "\f067";
+    }
+    .active > a > .fa.plus-times {
+    transform: rotate(45deg);
+    }
+    .plus-minus {
+    float: right;
+    }
+    .fa.plus-minus:before {
+    content: "\f067";
+    }
+    .active > a > .fa.plus-minus:before {
+    content: "\f068";
+    }
+    .collapse {
+    display: none;
+    }
+    .collapse.in {
+    display: block;
+    }
+    .collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition-timing-function: ease;
+    transition-duration: .35s;
+    transition-property: height, visibility;
+    }
+
+    .has-arrow {
+    position: relative;
+    }
+
+    .has-arrow::after {
+    position: absolute;
+    content: '';
+    width: .5em;
+    height: .5em;
+    border-width: 1px 0 0 1px;
+    border-style: solid;
+    border-color: #fff;
+    right: -1em;
+    transform: rotate(-45deg) translate(0, -50%);
+    transform-origin: top;
+    top: 50%;
+    transition: all .3s ease-out;
+    }
+
+    .active > .has-arrow::after,
+    .has-arrow[aria-expanded="true"]::after {
+    transform: rotate(-135deg) translate(0, -50%);
+    }
+}
+/* .metismenu > li.open > a, 
+.metismenu > li.open a:hover{
+  color:white;
+  background-color:#2d363f;
+} */
+*[dir="rtl"] .metismenu .arrow {
+  float: left;
+}
+*[dir="rtl"] .metismenu .plus-times {
+float: left;
+}    
+*[dir="rtl"] .metismenu .plus-minus {
+float: left;
+}
+*[dir="rtl"] .metismenu .has-arrow::after {
+right: auto;
+left: 1em;
+transform: rotate(135deg) translate(0, -50%);
+}

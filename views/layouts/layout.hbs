@@ -1,0 +1,25 @@
+<!doctype html>
+<html class="no-js main" ng-app="hostManage" lang="">
+    <head>
+   		<title>{{config "sitename"}} | {{title}}</title>
+		<link rel="stylesheet" href="/stylesheets/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+        <link href="/stylesheets/quill/quill.snow.css" rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/vendor/highlight.min.css">
+    	<link rel='stylesheet' href='/stylesheets/main.css' />
+    </head>
+    <body>
+        <script src="/javascripts/vendor/jquery-2.2.4.min.js"></script>
+        <script src="/javascripts/vendor/angular.min.js"></script>
+        <script src="/javascripts/vendor/angular-sanitize.js"></script>
+        <script src="/javascripts/vendor/dirPagination.js"></script>
+        <script src="/stylesheets/quill/quill.js"></script>
+        <script type="text/javascript" src="/javascripts/vendor/ng-quill.js"></script>
+        <script src="/javascripts/main.js"></script>
+        {{> header }}
+        <div class="container-fluid">
+        {{{body}}}
+        </div>
+  		<script src="/stylesheets/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<script type="text/javascript" src="../javascripts/hostCtrl.js"></script>
+<div ng-controller="hostCtrl">
+	<h2 class="text-center">Hosting</h2>
+	<div class="nohosts text-center">
+		<br>
+		<h4>You have no hosts created</h4>
+    	<a href="/hosting/new" class="btn btn-success btn-lg">Create server</a>
+	</div>
+	<div class="alert alert-danger hidden" id="errorBox">{[{error}]}</div>
+	<table class="table hostlist">
+		<thead>
+			<tr>
+				<td>Name</td>
+				<td>IP Address</td>
+				<td>Created</td>
+				<td>&nbsp;</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr dir-paginate="host in hosts | itemsPerPage: hostsPerPage" total-items="totalHosts" current-page="pagination.current">
+				<td ng-click="manage(host.dropid)">
+					<h4>{[{ host.name }]}</h4>
+					{[{ host.memory}]} MB / {[{ host.disk}]} G / {[{ host.region.slug }]} - {[{ host.image.distribution}]} {[{host.image.name}]}
+				</td>
+				<td>{[{ host.ipaddress }]}</td>
+				<td>{[{ host.created }]}</td>
+				<td>
+					<!-- Single button -->
+					<div class="btn-group">
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Manage <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="#">Add a domain</a></li>
+						<li><a href="#" ng-click="manage(host.dropid)">Access console</a></li>
+						<li><a href="#">Resize droplet</a></li>
+						<li><a href="#" ng-click="manage(host.dropid)">View usage</a></li>
+						<li><a href="#">Enable backups</a></li>
+						<li><a href="#">Add tags</a></li>
+						<li role="separator" class="divider"></li>
+    					<li><a href="#" ng-click="remove(host.dropid)">Destroy</a></li>
+					</ul>
+					</div>		
+				</td>	
+			</tr>
+		</tbody>
+	</table>
+	<div class="tableFoot row">
+		<div class="col-md-6 col-md-offset-3 col-sm-12">
+			<dir-pagination-controls class="pageCtrls" on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+		</div>
+		<div class="col-md-2 col-md-offset-5">
+			<select class="pageAmtCtrls" ng-model="hostsPerPage" ng-change="pageAmtChange()" ng-options="option.value as option.name for option in options">
+				<option value="2">2</option>
+				<option value="25">25</option>
+				<option value="50">50</option>
+				<option value="100">100</option>
+			</select>
+		</div>
+	</div>
+</div>

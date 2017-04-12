@@ -1,0 +1,86 @@
+<script type="text/javascript" src="../javascripts/domainCtrl.js"></script>
+<div ng-controller="domainCtrl">
+<h1 class="text-center">Domains</h1>
+<div class="row" >
+	<div class="col-md-12">
+		<div class="alert alert-danger hidden" id="errorBox">{[{error}]}</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-6">
+		<form class="form-inline">
+			<div class="form-group">
+				<label >Search</label>
+				<input type="text" ng-model="search" class="form-control" placeholder="Search">
+			</div>
+    	</form>
+		</div>
+		<div class="col-md-3 col-md-offset-3">
+			<button class="btn btn-success add-domain pull-right" ng-click="addNewDomain()">Add Domain</button>
+		</div>
+	</div>
+</div>
+<div class="row hidden" id="domain-form">
+	<div class="col-md-8 col-md-offset-2">
+		<table class="table">
+			<thead>
+				<tr>
+					<td>URL</td>
+					<td>Expiry</td>
+					<td>&nbsp;</td>
+				</tr>		
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" ng-model="domain.url"></td>
+					<td><input class="form-control" type="date" ng-model="domain.expiration" min="2017-01-01" required ></td>
+					<td><button class="btn btn-primary" id="btn-add" ng-click="createDomain()">Add Domain</button></td>
+					<td><button class="btn btn-info" id="btn-update" ng-click="update()">Update</button></td>
+					<td><button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+	<table class="table">
+		<thead>
+			<tr>
+				{{# if admin }}
+				<th ng-click="sort('user')">User 
+					<span class="glyphicon sort-icon" ng-show="sortKey=='user'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+				</th>
+				{{/if}}
+				<th ng-click="sort('url')">URL 
+					<span class="glyphicon sort-icon" ng-show="sortKey=='url'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+				</th>
+				<th ng-click="sort('created')">Created 
+					<span class="glyphicon sort-icon" ng-show="sortKey=='created'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+				</th>
+				<th ng-click="sort('expiration')">Expiry 
+					<span class="glyphicon sort-icon" ng-show="sortKey=='expiration'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+				</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr dir-paginate="domain in domainlist|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">
+
+				{{# if admin }}
+				<td>{[{domain.user}]}</td>
+				{{/if}}
+				<td>{[{domain.url}]}</td>
+				<td>{[{domain.created  | date:'MMM-dd-yyyy' }]}</td>
+				<td>{[{domain.expiration  | date:'MMM-dd-yyyy' }]}</td>
+				<td><button class="btn btn-danger" ng-click="remove(domain._id)">Remove</button> 
+					<button class="btn btn-warning" ng-click="edit(domain._id)">Edit</button>
+				</td> 
+			</tr>
+		</tbody>
+	</table>
+	<dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" ></dir-pagination-controls>
+	</div>
+</div>
+</div>

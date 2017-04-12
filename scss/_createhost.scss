@@ -1,0 +1,133 @@
+// Add Hosting
+.distroMenuTitle,
+.sizeMenuTitle {
+    cursor:pointer;
+    color:blue;
+    padding-left:0px;
+    margin-top:15px;
+}
+.styleMenuTitle > li,
+.distroMenuTitle > li,
+.sizeMenuTitle > li {
+    display:inline;
+    padding:10px;
+}
+.sizeMenuTitle > li:hover,
+.sizeMenuTitle > li.selected,
+.distroMenuTitle > li:hover,
+.distroMenuTitle > li.selected {
+    display:inline;
+    color:red;
+    border:1px solid red;
+}
+
+.distroList {
+    cursor:pointer;
+    list-style:none;
+}
+.distroList > li{
+    padding:10px;
+}
+.distroBox,
+.sizeBox{
+    padding-bottom:10px;
+    margin-bottom:10px;
+    vertical-align:middle;
+}
+.regBox{
+    margin-bottom:10px;
+    vertical-align:middle; 
+}
+.sizeBox,
+.regBox{
+    cursor:pointer;
+}
+.distroList > li,
+.distroMenuTitle > li,
+.sizeMenuTitle > li,
+.regBox > .boxTop,
+.distroBox,
+.sizeBox{
+    border: 1px solid blue;
+}
+.distroList > li:hover,
+.distroList > li.selected,
+.distroBox:hover,
+.distroBox.selected,
+.sizeBox:hover,
+.sizeBox.selected,
+.regBox:hover .boxTop,
+.regBox.selected .boxTop,
+.regBoxBtmBord:hover,
+.regBoxBtmBordTwo:hover,
+.regBoxBtmBordThree:hover,
+.regBoxBtmBord.selected,
+.regBoxBtmBordTwo.selected,
+.regBoxBtmBordThree.selected{
+    border-color: #d61414;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(233,102,102,0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(233,102,102,0.6);
+}
+.distroBox:hover > .boxTop,
+.distroBox.selected > .boxTop,
+.sizeBox:hover > .boxTop,
+.sizeBox.selected > .boxTop{
+    border-color:red;
+}
+.boxTop {
+    padding-top:10px;
+    padding-bottom:10px;
+    border-bottom: 1px solid blue;
+    img{
+        margin-left:auto;
+        margin-right:auto;
+        width:100px;
+    }
+}
+.regBox > .boxBtm{
+    padding-left:15px;
+    padding-right:15px;
+}
+.regBoxBtm,
+.regBoxBtmTwo,
+.regBoxBtmThree{
+    padding:0px;
+}
+.regBoxBtmBord,
+.regBoxBtmBordTwo,
+.regBoxBtmBordThree{
+    border-left:1px solid blue;
+    border-bottom:1px solid blue
+}
+.regBoxBtmBordThree{
+    border-right:1px solid blue;
+}
+.regBox p{
+    padding-top: 5px;
+    margin-bottom: 5px;
+}
+.sshList, .addOptionList{
+    padding-left:0px;
+}
+.sshList > li,
+.addOptionList > li {
+    display:inline;
+    padding:10px;
+}
+.sshList > li > label,
+.addOptionList > li > label{
+    padding-left:3px;
+}
+.question,
+.additionalquestion{
+    float: left;
+    margin-top: -40px;
+    margin-left: 150px;
+}
+.additionalquestion{
+    margin-left:200px;
+}
+.serverCreateBtn{
+    width:100%;
+}

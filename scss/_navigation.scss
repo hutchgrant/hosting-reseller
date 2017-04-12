@@ -1,0 +1,50 @@
+@import 'colors';
+
+// Navigation 
+.navbar-default {
+    background-color: $color-nav;
+    border-color: $color-navborder;
+    @media (min-width: 768px){
+        border-radius: 0px;
+    }
+    .navbar-brand{
+        color:$color-navtext;
+        &:hover{
+            color:$color-navhover;
+        }
+        &:active{
+            color:$color-navactive;
+        }
+    }
+    .navbar-nav{
+        li > a{
+            color:$color-navtext;
+            &:hover{
+                color:$color-navhover;
+            }
+            &:active{
+                color:$color-navactive;
+            }
+        }
+        .open{
+            a{
+                color: black;
+                &:hover {
+                    color: white;
+                    background-color: black;
+                }
+                &:focus{
+                    color: white;
+                    background-color: black;  
+                }
+            }
+        }
+    }
+}
+
+.headBtn{
+    margin-bottom: -10px;
+}
+.headBtn button{
+    margin-top: -5px;
+}
