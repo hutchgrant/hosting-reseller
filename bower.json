@@ -1,0 +1,29 @@
+{
+  "name": "hosting-reseller",
+  "description": "Basic Digital Ocean Hosting Reseller application",
+  "main": "app.js",
+  "authors": [
+    "hutchgrant <h.g.utchinson@gmail.com>"
+  ],
+  "license": "Apache2.0",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4",
+    "jquery": "^3.2.1",
+    "moment": "^2.18.1",
+    "metisMenu": "^2.7.0",
+    "font-awesome": "^4.7.0",
+    "angular-drag-and-drop-lists": "dndLists#^2.1.0",
+    "highlight": "^9.10.0",
+    "bootstrap-sass": "^3.3.7",
+    "Ionicons": "ionicons#^2.0.1"
+  }
+}

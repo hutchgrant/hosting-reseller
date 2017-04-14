@@ -1,3 +1,8 @@
+$icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
+@import '../bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
+
+
 // Necessities
 @import 'colors';
 @import 'fonts';

@@ -1,10 +1,13 @@
 {
   "name": "hosting-reseller",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "authors": [
+    "hutchgrant <h.g.utchinson@gmail.com>"
+  ],
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "build-css": "node-sass --include-path scss scss/main.scss public/stylesheets/main.css && node-sass --include-path scss scss/mainadmin.scss public/stylesheets/mainadmin.css ",
+    "build-css": "node-sass --include-path scss scss/_base.scss public/stylesheets/main.css && node-sass --include-path scss scss/_baseadmin.scss public/stylesheets/mainadmin.css ",
     "watch-css": "nodemon -e scss -x \"npm run build-css && nodemon\"",
     "watch": "start & npm run watch-css"
   },

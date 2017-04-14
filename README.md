@@ -2,9 +2,9 @@
 
 This is a nodejs DigitalOcean hosting reseller application. It's primarily for development at the moment, though it's a good demonstration of what can be achieved utilizing DigitalOcean's API.
 
-![alt text](https://github.com/hutchgrant/hosting-reseller/raw/master/screenshot.png "DigitalOcean Hosting Reseller")
+![alt text](https://github.com/hutchgrant/hosting-reseller/raw/master/screenshots/screenshot.png "DigitalOcean Hosting Reseller")
 
-More Screenshots [1](https://github.com/hutchgrant/hosting-reseller/raw/master/screenshot2.png), [2](https://github.com/hutchgrant/hosting-reseller/raw/master/screenshot3.png), [3](https://github.com/hutchgrant/hosting-reseller/raw/master/screenshot_admin.png), [4](https://github.com/hutchgrant/hosting-reseller/raw/master/screenshot_admin2.png)
+More Screenshots [1](https://github.com/hutchgrant/hosting-reseller/raw/master/screenshots/screenshot2.png), [2](https://github.com/hutchgrant/hosting-reseller/raw/master/screenshots/screenshot3.png), [3](https://github.com/hutchgrant/hosting-reseller/raw/master/screenshots/screenshot_admin.png), [4](https://github.com/hutchgrant/hosting-reseller/raw/master/screenshots/screenshot_admin2.png)
 
 ## Features
 
@@ -16,12 +16,17 @@ More Screenshots [1](https://github.com/hutchgrant/hosting-reseller/raw/master/s
 - mongo
 - npm
 - nodejs
+- bower 
+- nodemon
 
 ## Manual Install
 
 ```
 git clone https://github.com/hutchgrant/hosting-reseller.git
+cd hosting-reseller
+sudo npm install bower nodemon -g
 npm install
+bower install
 ```
 
 ## Launch
